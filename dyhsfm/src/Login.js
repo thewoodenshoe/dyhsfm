@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
-import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { Button, FormGroup, FormControl, ControlLabel, Panel } from "react-bootstrap";
 import "./Login.css";
+var Alert = require('react-bootstrap/lib/Alert');
 class Login extends Component {
     constructor(props){
     super(props);
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      RegisterOpen: false,
     };
   }
-  validateForm() {
+  validateLogin() {
     return this.state.email.length > 0 && this.state.password.length > 0;
+  }
+  validateRegister() {
+    return this.state.email.length > 0;
   }
  handleChange = event => {
     this.setState({
@@ -23,29 +28,67 @@ class Login extends Component {
       render() {
         return (
            <div>
-              <center>
-              <h2>Login</h2>
-              <form onSubmit={this.handleSubmit}>
-                 <FormGroup controlId="email" bsSize="large">
-                    <ControlLabel>Email: </ControlLabel>
+              <Panel className="Login-form">
+                <Panel.Heading>
+                  Login
+                </Panel.Heading>
+                <Panel.Body>
+                <form onSubmit={this.handleSubmit}>
+                  <FormGroup controlId="email" bsSize="large">
+                    <ControlLabel>
+                      Email: 
+                    </ControlLabel>
                     <FormControl
-                         autoFocus
-                         type="email"
-                         value={this.state.email}
-                         onChange={this.handleChange}
+                      autoFocus
+                      type="email"
+                      value={this.state.email}
+                      onChange={this.handleChange}
                     />
+                  </FormGroup>
+                  <FormGroup controlId="password" bsSize="large">
+                    <ControlLabel>
+                      Password:
+                    </ControlLabel>
+                    <FormControl
+                      value={this.state.password}
+                      onChange={this.handleChange}
+                      type="password"
+                    />
+                  </FormGroup>
+                  <Button bsStyle="success" block bsSize="large" disabled={!this.validateLogin()} type="submit"> 
+                    Login
+                  </Button>      
+                </form>
+                </Panel.Body>
+                <Panel.Footer>
+                <Button onClick={() => this.setState({ RegisterOpen: !this.state.RegisterOpen })}>
+                  Don't have an account yet? Register here
+                </Button>
+                <br />
+                <Panel id="collapsible-register-panel" expanded={this.state.RegisterOpen}>
+                <Panel.Collapse>
+                <Panel.Body>
+                  <form onSubmit={this.handleRegister}>
+                    <FormGroup controlId="email" bsSize="large">
+                      <ControlLabel>
+                        Email: 
+                      </ControlLabel>
+                      <FormControl
+                        autoFocus
+                        type="email"
+                        value={this.state.email}
+                        onChange={this.handleChange}
+                      />
                     </FormGroup>
-                    <FormGroup controlId="password" bsSize="large">
-                       <ControlLabel>Password: </ControlLabel>
-                       <FormControl
-                          value={this.state.password}
-                          onChange={this.handleChange}
-                          type="password"
-                       />
-                 </FormGroup>
-                 <Button block bsSize="large" disabled={!this.validateForm()} type="submit"> Login </Button>
-              </form>
-              </center>
+                    <Button bsStyle="success" block bsSize="large" disabled={!this.validateRegister()} type="submit"> 
+                      Register
+                    </Button>      
+                  </form>
+                </Panel.Body>
+                </Panel.Collapse>
+                </Panel> 
+                </Panel.Footer>
+              </Panel>
            </div>
         )
     }
