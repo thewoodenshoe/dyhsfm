@@ -1,9 +1,9 @@
 @media all and (min-width: 480px) {
-    .Login {
+    .Home {
       width: 270px;
     }
   
-    .Login-form {
+    .Home-panel {
       margin: 0 auto;
       max-width: 300px;
     }
