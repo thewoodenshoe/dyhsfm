@@ -4,7 +4,7 @@ import { Navbar, Nav, NavItem, FormGroup, FormControl, Button} from "react-boots
 import LoginPage from './Login';
 import HomePage from './Home';
 import './App.css';
-//                 <img alt="home" src ="./favicon.ico" />
+//                 
 const App = () => (
   <Router>
     <div className="App-layoutStyle">
@@ -12,7 +12,7 @@ const App = () => (
          <Navbar.Header>
             <Navbar.Brand>
                <Link to="/">
-                 Home
+               <img alt="home" src ="./favicon.ico" />
                </Link> 
             </Navbar.Brand>
             <Navbar.Form pullLeft>
