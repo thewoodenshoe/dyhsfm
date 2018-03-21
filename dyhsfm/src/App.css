@@ -7,14 +7,14 @@
 @media (max-width: 767px) {
   .navbar-header {
     display: flex;
-    align-items: center; 
+    align-items: flex-center;
     justify-content: space-between;  
   }
   .navbar-form.navbar-left {
     display: flex;
   }
   .navbar-form .form-group {
-    margin-bottom: 0;   
+    margin-bottom: 0;
   }
 }
 

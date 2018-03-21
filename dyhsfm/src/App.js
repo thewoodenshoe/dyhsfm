@@ -1,17 +1,19 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Navbar, Nav, NavItem, Form, FormGroup, FormControl, Button} from "react-bootstrap";
+import { Navbar, Nav, NavItem, FormGroup, FormControl, Button} from "react-bootstrap";
 import LoginPage from './Login';
 import HomePage from './Home';
 import './App.css';
-
+//                 <img alt="home" src ="./favicon.ico" />
 const App = () => (
   <Router>
     <div className="App-layoutStyle">
       <Navbar fluid inverse collapseOnSelect>
          <Navbar.Header>
             <Navbar.Brand>
-               <Link to="/">Home</Link> 
+               <Link to="/">
+                 Home
+               </Link> 
             </Navbar.Brand>
             <Navbar.Form pullLeft>
             <FormGroup>

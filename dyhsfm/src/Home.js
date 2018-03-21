@@ -5,18 +5,17 @@ class Home extends Component {
     render() {
         return (
             <div>
-               
-                    <Panel className="Home-panel">
-                        <Panel.Heading>
-                            Heading
-                        </Panel.Heading>
-                        <Panel.Body>
-                            Hello, this is the main page
-                        </Panel.Body>
-                        <Panel.Footer>
-                            Footer
-                        </Panel.Footer>
-                    </Panel>
+                <Panel className="Home-panel">
+                    <Panel.Heading>
+                      Heading
+                    </Panel.Heading>
+                    <Panel.Body>
+                      Hello, this is the main page <br />
+                    </Panel.Body>
+                    <Panel.Footer>
+                      Footer
+                     </Panel.Footer>
+                </Panel>
             </div>
         )
     }
