@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Button, FormGroup, FormControl, ControlLabel, Panel } from "react-bootstrap"
 import "./Login.css"
-const fetch = require("node-fetch")
+const axios = require("axios")
 class Login extends Component {
     constructor(props){
     super(props);
@@ -24,22 +24,19 @@ class Login extends Component {
       [event.target.id]: event.target.value
     });
   }
-  // Ramiro: Deze handle submit doet de fetch dus niet. Je ziet wel de pagina herladen. Maar niet naar 8080/test gaan???
+  
   handleSubmit = event => {
-    fetch('http://localhost:8080/test', {
-      method: 'POST',
-      headers: {"Content-Type": "application/json"},
-      redirect: 'follow',
-      body: JSON.stringify({
-        xEmail: this.state.email,
-        xPassword: this.state.password
-      })
+    alert ('ik zit erin')
+    const url = 'http://localhost:8080/mytest'
+    axios.post(url, {
+      firstName: 'Fred',
+      lastName: 'Flintstone'
     })
-    .then(function(response){
+    .then(function (response) {
       console.log(response);
-      return response.json()
-    }).then(function(body){
-      console.log(body);
+    })
+    .catch(function (error) {
+      console.log(error);
     });
   }
       render() {

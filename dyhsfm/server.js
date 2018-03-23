@@ -10,13 +10,13 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'build')));
 
-app.get('/test', function (req, res) {
+app.get('/mytest', function (req, res) {
    console.log('in app.get / test on express 8080')
    return res.send('app.get / test');
 });
 
 // Ramiro: dit zou afgevuurd moeten worden toch?
-app.post('/test', function (req, res) {
+app.post('/mytest', function (req, res) {
   console.log('in app.post / test on express 8080')
   return res.send('app.post / test');
 });
