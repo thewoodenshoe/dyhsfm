@@ -29,12 +29,13 @@ class Login extends Component {
     // curl -x POST http://localhost:8080/mytest
     // the above works and i will get the messages from /mytest 
     const url = 'http://localhost:8080/mytest'
-    const formData = { login:'Paul', password:'Password' }
-    alert(`Going to url ${url} with username ${formData.login}`) // alert shows. We ARE being executed
+    const formData = { login:'Paul.', password:'Password' }
+    //alert(`Going to url ${url} with username ${formData.login}`) // alert shows. We ARE being executed
 
     // I notice the page loads/ refreshes, does something?!. I don't understand devtools/network/XHR. I dont see 8080/mytest in there?!
-    axios.post(url, formData, { headers: {'Accept': 'application/json'} })
+    axios.post(url, JSON.stringify(formData))
     .then(function (response) {
+      alert(response)
       console.log('response: ' +response);
     })
     .catch(function (error) {

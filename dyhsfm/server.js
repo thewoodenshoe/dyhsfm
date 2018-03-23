@@ -16,8 +16,10 @@ app.get('/mytest', function (req, res) {
 });
 
 app.post('/mytest', function (req, res) {
+  console.log(req)
+  console.log(res)
   console.log('in app.post / test on express 8080')
-  return res.send('app.post / test');
+  return res.send('{id: 1}');
 });
 
 app.get('/', function (req, res) {
