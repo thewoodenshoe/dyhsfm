@@ -26,11 +26,13 @@ class Login extends Component {
   }
   
   handleSubmit = event => {
-    alert('I am triggered and I do see a page reload')
+    // curl -x POST http://localhost:8080/mytest
+    // the above works and i will get the messages from /mytest 
     const url = 'http://localhost:8080/mytest'
-    const login = this.state.login
-    const password = this.state.password
-    const formData = { login:login, password:password }
+    const formData = { login:'Paul', password:'Password' }
+    alert(`Going to url ${url} with username ${formData.login}`) // alert shows. We ARE being executed
+
+    // I notice the page loads/ refreshes, does something?!. I don't understand devtools/network/XHR. I dont see 8080/mytest in there?!
     axios.post(url, formData, { headers: {'Accept': 'application/json'} })
     .then(function (response) {
       console.log('response: ' +response);
@@ -42,6 +44,11 @@ class Login extends Component {
       render() {
         return (
            <div>
+               <Panel className="Login-form">
+                <form onSubmit={this.handleSubmit}>
+                   <Button bsStyle="success" block type="submit"> Login </Button>
+                </form>
+              {/*
               <Panel className="Login-form">
                 <Panel.Heading>
                   Login
@@ -78,12 +85,12 @@ class Login extends Component {
                       type="checkbox"
                     />
                   </FormGroup>
-                  <Button bsStyle="success" block bsSize="large" disabled={ this.validateLogin()} type="submit">  
+                  <Button bsStyle="success" block bsSize="large" disabled={ !this.validateLogin()} type="submit">  
                     Login
                   </Button>      
                 </form>
                 </Panel.Body>
- {/*
+
                 <Panel.Footer>
 
                 <Button className="Login" onClick={() => this.setState({ RegisterOpen: !this.state.RegisterOpen })}>
@@ -144,10 +151,5 @@ class Login extends Component {
         )
     }
 }
-
-// <form action="http://localhost:8080/api/login" method="post"> 
-// <input type="text" name="email" /> <br />
-// <input type="text" name="password" /> <br />
-// </form>
 
 export default Login;
