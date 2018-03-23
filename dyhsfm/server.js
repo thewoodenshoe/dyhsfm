@@ -10,15 +10,16 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'build')));
 
-app.get('/ping', function (req, res) {
- return res.send('pong');
+app.get('/test', function (req, res) {
+   console.log('in app.get / test on express 8080')
+   return res.send('app.get / test');
 });
 
-app.get('/api/login', function (req, res) {
-  return res.send("ping pong");
- });
-
-app.post('/api/login',dbApi.login)
+// Ramiro: dit zou afgevuurd moeten worden toch?
+app.post('/test', function (req, res) {
+  console.log('in app.post / test on express 8080')
+  return res.send('app.post / test');
+});
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));

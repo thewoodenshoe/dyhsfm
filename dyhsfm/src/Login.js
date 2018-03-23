@@ -1,12 +1,14 @@
-import React, { Component } from 'react';
-import { Button, FormGroup, FormControl, ControlLabel, Panel } from "react-bootstrap";
-import "./Login.css";
+import React, { Component } from 'react'
+import { Button, FormGroup, FormControl, ControlLabel, Panel } from "react-bootstrap"
+import "./Login.css"
+const fetch = require("node-fetch")
 class Login extends Component {
     constructor(props){
     super(props);
     this.state = {
       email: "",
       password: "",
+      rememberMe: false,
       RegisterOpen: false,
       LostPasswordOpen: false
     };
@@ -22,8 +24,23 @@ class Login extends Component {
       [event.target.id]: event.target.value
     });
   }
+  // Ramiro: Deze handle submit doet de fetch dus niet. Je ziet wel de pagina herladen. Maar niet naar 8080/test gaan???
   handleSubmit = event => {
-    alert(this.state.password);    
+    fetch('http://localhost:8080/test', {
+      method: 'POST',
+      headers: {"Content-Type": "application/json"},
+      redirect: 'follow',
+      body: JSON.stringify({
+        xEmail: this.state.email,
+        xPassword: this.state.password
+      })
+    })
+    .then(function(response){
+      console.log(response);
+      return response.json()
+    }).then(function(body){
+      console.log(body);
+    });
   }
       render() {
         return (
@@ -55,12 +72,21 @@ class Login extends Component {
                       type="password"
                     />
                   </FormGroup>
-                  <Button bsStyle="success" block bsSize="large" disabled={!this.validateLogin()} type="submit"> 
+                  <FormGroup controlId="rememberMe">
+                    <ControlLabel>
+                      Remember me
+                    </ControlLabel>
+                    <FormControl
+                      value={this.state.rememberMe}
+                      type="checkbox"
+                    />
+                  </FormGroup>
+                  <Button bsStyle="success" block bsSize="large" disabled={ this.validateLogin()} type="submit">  
                     Login
                   </Button>      
                 </form>
                 </Panel.Body>
-
+ {/*
                 <Panel.Footer>
 
                 <Button className="Login" onClick={() => this.setState({ RegisterOpen: !this.state.RegisterOpen })}>
@@ -115,6 +141,7 @@ class Login extends Component {
                 </Panel.Collapse>
                 </Panel> 
                 </Panel.Footer>
+        */}                
               </Panel>
            </div>
         )

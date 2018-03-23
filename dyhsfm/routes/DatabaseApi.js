@@ -1,19 +1,20 @@
 var mysql      = require('mysql');
 
 //
-//dummy dbase and password for now. can be seen in GIT, i know.
+// dummy dbase and password for now. can be seen in GIT, i know.
 //
+
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : 'stewart01', 
-  database : 'dyhsfm'
+  password : '', 
+  database : 'dyhsfm',
 });
 connection.connect(function(err){
 if(!err) {
     console.log("Database is connected.");
 } else {
-    console.log("Error connecting database!");
+    console.log("Error connecting database: "+err);
 }
 });
 
