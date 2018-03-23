@@ -26,17 +26,17 @@ class Login extends Component {
   }
   
   handleSubmit = event => {
-    alert ('ik zit erin')
+    alert('I am triggered and I do see a page reload')
     const url = 'http://localhost:8080/mytest'
-    axios.post(url, {
-      firstName: 'Fred',
-      lastName: 'Flintstone'
-    })
+    const login = this.state.login
+    const password = this.state.password
+    const formData = { login:login, password:password }
+    axios.post(url, formData, { headers: {'Accept': 'application/json'} })
     .then(function (response) {
-      console.log(response);
+      console.log('response: ' +response);
     })
     .catch(function (error) {
-      console.log(error);
+      console.log('error: ' +error);
     });
   }
       render() {

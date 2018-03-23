@@ -15,7 +15,6 @@ app.get('/mytest', function (req, res) {
    return res.send('app.get / test');
 });
 
-// Ramiro: dit zou afgevuurd moeten worden toch?
 app.post('/mytest', function (req, res) {
   console.log('in app.post / test on express 8080')
   return res.send('app.post / test');
