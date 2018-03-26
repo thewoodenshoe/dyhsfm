@@ -26,30 +26,20 @@ class Login extends Component {
   }
   
   handleSubmit = event => {
-    // curl -x POST http://localhost:8080/mytest
-    // the above works and i will get the messages from /mytest 
     const url = 'http://localhost:8080/mytest'
-    const formData = { login:'Paul.', password:'Password' }
-    //alert(`Going to url ${url} with username ${formData.login}`) // alert shows. We ARE being executed
-
-    // I notice the page loads/ refreshes, does something?!. I don't understand devtools/network/XHR. I dont see 8080/mytest in there?!
+    const formData = { email: this.state.email} //, password: this.state.password }
     axios.post(url, JSON.stringify(formData))
     .then(function (response) {
       alert(response)
-      console.log('response: ' +response);
+      console.log('HandleSubmit- Response: ' +response);
     })
     .catch(function (error) {
-      console.log('error: ' +error);
+      console.log('HandleSubmit- Error: ' +error);
     });
   }
       render() {
         return (
            <div>
-               <Panel className="Login-form">
-                <form onSubmit={this.handleSubmit}>
-                   <Button bsStyle="success" block type="submit"> Login </Button>
-                </form>
-              {/*
               <Panel className="Login-form">
                 <Panel.Heading>
                   Login
@@ -145,8 +135,7 @@ class Login extends Component {
                 </Panel.Body>
                 </Panel.Collapse>
                 </Panel> 
-                </Panel.Footer>
-        */}                
+                </Panel.Footer>    
               </Panel>
            </div>
         )
