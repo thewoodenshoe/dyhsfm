@@ -34,11 +34,11 @@ class Login extends Component {
     params.append('password', this.state.password)
 
     axios.post(url, params)
-    .then(function (response) {
-      console.log('handleLogin: back in frontend axios.post.then')
+    .then(res => {
+      alert(+res)
     })
-    .catch(function (error) {
-      console.log('handleLogin error: ' +error);
+    .catch(err => {
+      alert(err)
     });
   }
   handleRegister = event => {
