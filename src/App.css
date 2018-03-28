@@ -1,0 +1,57 @@
+.App {
+  text-align: center;
+}
+
+
+/* navbar fix for mobile screens */ 
+@media (max-width: 767px) {
+  .navbar-header {
+    display: flex;
+    align-items: flex-center;
+    justify-content: space-between;  
+  }
+  .navbar-form.navbar-left {
+    display: flex;
+  }
+  .navbar-form .form-group {
+    margin-bottom: 0;
+  }
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-layoutStyle {
+  padding: 0;
+  border-top-style: '1px solid #DDD';
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-link {
+  color: green;
+  margin: 15px;
+  padding: 1px 7px;
+  text-decoration: none;
+  font-family: Arial;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

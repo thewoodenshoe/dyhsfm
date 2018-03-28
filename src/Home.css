@@ -1,0 +1,10 @@
+@media all and (min-width: 480px) {
+    .Home {
+      width: 270px;
+    }
+  
+    .Home-panel {
+      margin: 0 auto;
+      max-width: 300px;
+    }
+  }
