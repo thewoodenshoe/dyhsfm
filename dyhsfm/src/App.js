@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Navbar, Nav, NavItem, FormGroup, FormControl, Button} from "react-bootstrap";
 import LoginPage from './Login';
+import LoginOldPage from './LoginOld';
 import HomePage from './Home';
 import './App.css';
 //                 
@@ -28,15 +29,15 @@ const App = () => (
                <NavItem eventKey={1} href="Login">
                 Login
                </NavItem>
-               <NavItem eventKey={2} href="Topics">
-                Topics
+               <NavItem eventKey={2} href="LoginOld">
+                Old Login
                </NavItem>
             </Nav>
          </Navbar.Collapse>
       </Navbar>     
       <Route exact path="/" component={Home} />
       <Route path="/login" component={Login} />
-      <Route path="/topics" component={Topics} />
+      <Route path="/loginOld" component={LoginOld} />
     </div>
   </Router>
 );
@@ -53,33 +54,9 @@ const Login = () => (
   </div>
 );
 
-const Topics = ({ match }) => (
+const LoginOld = () => (
   <div>
-    <h2>Topics</h2>
-    <ul>
-      <li>
-        <Link to={`${match.url}/rendering`}>Rendering with React</Link>
-      </li>
-      <li>
-        <Link to={`${match.url}/components`}>Components</Link>
-      </li>
-      <li>
-        <Link to={`${match.url}/props-v-state`}>Props v. State</Link>
-      </li>
-    </ul>
-
-    <Route path={`${match.url}/:topicId`} component={Topic} />
-    <Route
-      exact
-      path={match.url}
-      render={() => <h3>Please select a topic.</h3>}
-    />
-  </div>
-);
-
-const Topic = ({ match }) => (
-  <div>
-    The url: {match.params.topicId}
+    <LoginOldPage />
   </div>
 );
 

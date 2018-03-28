@@ -4,7 +4,7 @@ var mysql      = require('mysql');
 let connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : 'stewart01', 
+  password : '', 
   database : 'dyhsfm',
 })
 
@@ -13,10 +13,10 @@ connection.connect(function(err){
      console.log("Database is connected.")
   }
   else {
-    connection.password = ''
+    connection.password = 'stewart01'
     connection.connect(function(err){
       if(!err) {
-        console.log("Database is connected (no pw).")
+        console.log("Database is connected..")
       }
       else {
         console.log("Error connecting database: " +err)
@@ -25,9 +25,7 @@ connection.connect(function(err){
   }
 })
 
- // exports.login = function(email, password){
- //   connection.query('select * from users where email = ?',[email], function (error, results, fields) {
- exports.login = function(req,res){
+exports.login = function(req,res){
     let email = req.body.email
     let password = req.body.password
     // for testing purpose to bypass db connections
@@ -62,7 +60,7 @@ connection.connect(function(err){
                   })
             }
             else{
-              //console.log('Email and password does not match')
+              console.log('Email and password does not match')
               res.send({
                 "code":204,
                 "success":"Email and password does not match"
@@ -70,7 +68,7 @@ connection.connect(function(err){
             }
           }
           else{
-            //console.log('email does not exists')
+            console.log('email does not exists')
             res.send({
               "code":204,
               "success":"Email does not exists"
