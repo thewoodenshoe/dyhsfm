@@ -103,8 +103,8 @@ render() {
       </form>
     </Panel.Body>
 
+{/*
     <Panel.Footer>
-
     <Button className="Login" onClick={() => this.setState({ RegisterOpen: !this.state.RegisterOpen })}>
       Register account
     </Button>
@@ -179,6 +179,7 @@ render() {
     </Panel.Collapse>
     </Panel> 
     </Panel.Footer>    
+*/}
   </Panel>
   </div>
         )

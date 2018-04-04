@@ -10,13 +10,13 @@ let connection = mysql.createConnection({
 
 connection.connect(function(err){
   if(!err) {
-     console.log("Database is connected.")
+     console.log("Connection established to the database.")
   }
   else {
     connection.password = 'stewart01'
     connection.connect(function(err){
       if(!err) {
-        console.log("Database is connected..")
+        console.log("Connection established to the database..")
       }
       else {
         console.log("Error connecting database: " +err)
