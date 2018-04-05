@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Panel } from "react-bootstrap";
-import "./Home.css";
+import "./Style.css";
 class Home extends Component {
     render() {
         return (

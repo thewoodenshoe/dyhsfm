@@ -1,9 +1,10 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Navbar, Nav, NavItem, FormGroup, FormControl, Button} from "react-bootstrap";
-import LoginPage from './Login';
-import HomePage from './Home';
-import './App.css';
+import React from "react"
+import { BrowserRouter as Router, Route, Link } from "react-router-dom"
+import { Navbar, Nav, NavItem, FormGroup, FormControl, Button} from "react-bootstrap"
+import LoginPage from './Login'
+import HomePage from './Home'
+import SignupPage from './Signup'
+import './App.css'
 //                 
 const App = () => (
   <Router>
@@ -33,21 +34,28 @@ const App = () => (
       </Navbar>     
       <Route exact path="/" component={Home} />
       <Route path="/login" component={Login} />
+      <Route path="/signup" component={Signup} />
     </div>
   </Router>
-);
+)
 
 const Home = () => (
   <div>
      <HomePage />
   </div>
-);
+)
 
 const Login = () => (
   <div>
     <LoginPage />
   </div>
-);
+)
+
+const Signup = () => (
+  <div>
+    <SignupPage />
+  </div>
+)
 
 
 export default App;

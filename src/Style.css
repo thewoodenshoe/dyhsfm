@@ -1,0 +1,25 @@
+@media all and (min-width: 480px) {
+    .Login {
+      width: 270px;
+    }
+  
+    .Login-form {
+      margin: 0 auto;
+      max-width: 300px;
+    }
+    .Signup {
+        width: 270px;
+      }
+    
+      .Signup-form {
+        margin: 0 auto;
+        max-width: 300px;
+      }
+    .Home {
+      width: 270px;
+    } 
+    .Home-panel {
+      margin: 0 auto;
+      max-width: 300px;
+    }
+  }
