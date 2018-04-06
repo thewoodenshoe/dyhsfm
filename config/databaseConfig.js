@@ -1,4 +1,4 @@
-var mysql      = require('mysql');
+var mysql      = require('mysql')
 
 // dummy dbase and password for now. can be seen in GIT, i know.
 let connection = mysql.createConnection({
@@ -79,30 +79,23 @@ exports.login = function(req,res){
     }
   }
 
-  exports.register = function(req,res){
-    // console.log("req",req.body);
-    var today = new Date();
-    var users={
-      "first_name" : req.body.firstName,
-      "last_name"  : req.body.lastName,
-      "email"      : req.body.email,
-      "password"   : 'stewart01',
-      "created"    : today,
-      "modified"   : today
+  exports.register = function(body){
+      var today = new Date()
+      var users = {
+        "first_name" : body.firstName,
+        "last_name"  : body.lastName,
+        "email"      : body.email,
+        "password"   : body.password,
+        "created"    : today,
+        "modified"   : today
     }
-    connection.query('insert into users set ?',users, function (error, results, fields) {
-    if (error) {
-      console.log("error ocurred",error);
-      res.send({
-        "code":400,
-        "failed":"error ocurred"
-      })
-    }else{
-      console.log('Insert successfull: ', results);
-      res.send({
-        "code":200,
-        "success":"user registered sucessfully"
-          });
-    }
-    });
+    connection.query('insert into users set ?', users, function (error, results, fields) {
+      if (error) {
+        console.log("error ocurred",error)
+        return {"code":400,"failed":"error ocurred" }
+      } else {
+        console.log('Record inserted')
+        return { "code":200, "success":"user registered sucessfully" }
+      }
+    })
   }

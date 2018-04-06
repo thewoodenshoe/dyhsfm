@@ -14,13 +14,18 @@ app.use(passport.initialize()) // initialize middleware (functions that have acc
 //const passportConfig = require('./config/passportConfig')
 //passportConfig(passport)
 
-// handle requests
+// handle POST requests -- req.body is specifically for post requests
 //app.post('/login', passport.authenticate('local'), function(req, res) { res.redirect('/users/' + req.user.username) })
 //app.post('/login', passport.authenticate('local-login'), userResponse)
 app.post('/login', passport.authenticate('passport-local', { successRedirect: '/', failureRedirect: '/' })) //req.user contains the user. ie: req.user.username
+
+
 //app.post('/signup', passport.authenticate('passport-local', { successRedirect: '/login  ', failureRedirect: '/' }))
 app.post('/signup', function (req, res) {
-  console.log('param:' + JSON.stringify(req.params.email))
+  //console.log(`Name: ${req.body.firstName} ${req.body.lastName}. Email: ${req.body.email} and password: ${req.body.password}`)
+  const db = require('./config/databaseConfig')
+  let returnCode = db.register(req.body)
+  console.log('return code:' +returnCode)
   res.redirect('/login')
 })
 

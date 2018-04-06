@@ -51,7 +51,8 @@ render() {
 {/*            <form onSubmit={this.handleSignup}> 
                <form onSubmit="signup" method="POST">
 */}
-            <form onSubmit="signup" action="POST">
+            <form action="/signup" method="POST">
+
             <FormGroup controlId="firstName" bsSize="large">
                     <ControlLabel>
                         First name: 
@@ -59,6 +60,7 @@ render() {
                     <FormControl
                         autoFocus
                         type="firstName"
+                        name="firstName"
                         value={this.state.firstName}
                         onChange={this.handleChange}
                     />
@@ -70,6 +72,7 @@ render() {
                     <FormControl
                         autoFocus
                         type="lastName"
+                        name="lastName"
                         value={this.state.lastName}
                         onChange={this.handleChange}
                     />
@@ -81,6 +84,7 @@ render() {
                     <FormControl
                         autoFocus
                         type="email"
+                        name="email"
                         value={this.state.email}
                         onChange={this.handleChange}
                     />
@@ -93,6 +97,7 @@ render() {
                         value={this.state.password}
                         onChange={this.handleChange}
                         type="password"
+                        name="password"
                     />
                 </FormGroup>
 {/*}                <Button bsStyle="success" block bsSize="large" disabled={ !this.validateFields()} type="submit">  */}
