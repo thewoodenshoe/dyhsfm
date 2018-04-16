@@ -4,6 +4,7 @@ import { Navbar, Nav, NavItem, FormGroup, FormControl, Button} from "react-boots
 import LoginPage from './Login'
 import HomePage from './Home'
 import SignupPage from './Signup'
+import ProfilePage from './Profile'
 import './App.css'
 //                 
 const App = () => (
@@ -35,6 +36,7 @@ const App = () => (
       <Route exact path="/" component={Home} />
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup} />
+      <Route path="/profile" component={Profile} />
     </div>
   </Router>
 )
@@ -57,5 +59,10 @@ const Signup = () => (
   </div>
 )
 
+const Profile = () => (
+  <div>
+    <ProfilePage />
+  </div>
+)
 
 export default App;
